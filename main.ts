@@ -1,6 +1,6 @@
 // DealHound — a Black Friday deal finder entry (Node 22, standard library
 // only). The site is this directory's app/ folder: plain static files a
-// browser opens at app/index.html (ES modules, CSS, no build step), its 24
+// browser opens at app/index.html (ES modules, CSS, no build step), its 44
 // deals held in its own data.js — nothing it runs, styles or shows loads
 // over the network, and each deal links out to its store. The program hands
 // it in: it copies app/ and screenshots/ from beside this file to /output
