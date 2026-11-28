@@ -1,7 +1,7 @@
 // DealHound app: search + filters by category, store and discount, a
 // "really a deal" verdict per deal, and a detail page per deal. Static only:
 // all data lives in data.js, no network calls at runtime.
-import { DEALS, CATEGORIES, STORES, CHECKED_DATE, discountPct, saving, verdict } from './data.js';
+import { DEALS, CATEGORIES, STORES, CHECKED_DATE, discountPct, saving, verdict, bestPrice } from './data.js';
 
 const app = document.getElementById('app');
 const money = (n) => '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -35,12 +35,45 @@ function verdictPill(d) {
   return `<span class="verdict ${v.tone}">${esc(v.label)} &middot; ${discountPct(d)}% off</span>`;
 }
 
+// One-line cross-store hint for a list card: cheapest other store, and
+// whether this store beats it, ties it, or loses to it.
+function alsoAtLine(d) {
+  if (!d.alsoAt || !d.alsoAt.length) return '';
+  const cheapest = d.alsoAt.reduce((a, b) => (b.price < a.price ? b : a));
+  const diff = d.sale - cheapest.price;
+  const text = diff < 0
+    ? `Best price here &mdash; beats ${esc(cheapest.store)} by ${money(-diff)}`
+    : diff === 0
+      ? `Also at ${esc(cheapest.store)} &middot; ${money(cheapest.price)} (tied)`
+      : `Also at ${esc(cheapest.store)} &middot; ${money(cheapest.price)} (cheaper there)`;
+  return `<p class="alsoat">${text}</p>`;
+}
+
+// Full "same product elsewhere" block for the detail page.
+function compareHTML(d) {
+  const bp = bestPrice(d);
+  if (!bp) return '';
+  const rows = d.alsoAt.map((a) => {
+    const label = a.url
+      ? `<a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.store)} &nearr;</a>`
+      : esc(a.store);
+    return `<li>${label} &middot; <b>${money(a.price)}</b></li>`;
+  }).join('');
+  const verdictLine = bp.status === 'best'
+    ? `<p class="bestprice">Best price here &mdash; beats ${esc(bp.best.store)} by ${money(bp.best.price - d.sale)}</p>`
+    : bp.status === 'tied'
+      ? `<p class="bestprice">Tied for best price at ${money(d.sale)}</p>`
+      : `<p class="bestprice cheaper">Cheaper elsewhere: ${esc(bp.best.store)} has it for <b>${money(bp.best.price)}</b> &mdash; ${money(d.sale - bp.best.price)} less than here</p>`;
+  return `<section class="compare" aria-label="Same product elsewhere"><h2>Same product elsewhere</h2>${verdictLine}<ul>${rows}</ul></section>`;
+}
+
 function cardHTML(d) {
   return `<article class="card">
     <h2><a href="#/deal/${d.id}">${esc(d.name)}</a></h2>
     <div class="meta"><span class="store">${esc(d.store)}</span><span class="cat">${esc(d.category)}</span></div>
     <div class="price"><span class="now">${money(d.sale)}</span><span class="was">${money(d.usual)}</span><span class="save">Save ${money(saving(d))}</span><span class="pct">&minus;${discountPct(d)}%</span></div>
     ${verdictPill(d)}
+    ${alsoAtLine(d)}
     ${d.note ? `<p class="note">${esc(d.note)}</p>` : ''}
     <p class="checked">Checked ${esc(d.checked)} &middot; ${esc(d.source)}</p>
     <a class="shop" href="${esc(d.url)}" target="_blank" rel="noopener">View at ${esc(d.store)} &nearr;</a>
@@ -96,6 +129,7 @@ function detailHTML(d) {
     <h1>${esc(d.name)}</h1>
     <div class="meta"><span class="store">${esc(d.store)}</span><span class="cat">${esc(d.category)}</span><span>${esc(d.brand)}</span></div>
     <div class="price"><span class="now">${money(d.sale)}</span><span class="was">${money(d.usual)}</span><span class="save">Save ${money(saving(d))} (${discountPct(d)}% off)</span></div>
+    ${compareHTML(d)}
     ${verdictPill(d)}
     <p class="why"><b>Is it really a deal?</b>${esc(v.why)}</p>
     ${d.note ? `<p class="note"><b>Note:</b> ${esc(d.note)}</p>` : ''}
