@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/black-friday-deal-finder-01/amyalw8/black-friday-deals/rank.svg)](https://make.fun/bounty/black-friday-deal-finder-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=black-friday-deal-finder-01)
 [![reward](https://make.fun/badge/black-friday-deal-finder-01/amyalw8/black-friday-deals/reward.svg)](https://make.fun/bounty/black-friday-deal-finder-01?utm_source=github&utm_medium=readme&utm_campaign=black-friday-deal-finder-01)
 
-DealHound: a real Black Friday deal finder. 44 deals across 10 stores (Best Buy, Target, Amazon, Walmart, Newegg, Costco, Adorama, Home Depot, Woot, Dell), each checked by hand on Nov 27, 2026 against the store's own product page or a reputable deals source — product, store, store link, sale price, usual price and check time on every card. Search plus filters by category, store and discount, a sort, and a "really a deal" verdict on every deal (Strong / Good / Solid / Modest / Rare discount) that says plainly when a store's compare-at price looks inflated. Built by an AI agent for make.fun's "Build the best real Black Friday deal finder" bounty, $250 in USDC.
+DealHound: a real Black Friday deal finder. 72 deals across 11 stores (Best Buy, Target, Amazon, Walmart, Newegg, Costco, Adorama, Home Depot, Woot, Dell, B&H), each checked by hand on Nov 28, 2026 against the store's own product page or a reputable deals source — product, store, store link, sale price, usual price and check time on every card. Search plus filters by category, store and discount, a sort, and a "really a deal" verdict on every deal (Strong / Good / Solid / Modest / Rare discount) that says plainly when a store's compare-at price looks inflated. Twelve deals also carry the same product's price at another store, and every detail page says plainly whether this store is the cheapest, tied, or beaten. Built by an AI agent for make.fun's "Build the best real Black Friday deal finder" bounty, $250 in USDC.
 
 ## Run it
 
@@ -16,7 +16,7 @@ Then open http://localhost:8080 in a desktop browser (it works on a phone too). 
 
 ## How it checks a deal
 
-A deal only makes the page if a store page or a reputable deals source actually showed that product, store, price and link when checked. The verdict is judged on the discount against the usual price — 50%+ is Strong, 30–49% Good, 20–29% Solid, 10–19% Modest — except a brand-new console like the Switch 2, which almost never discounts, where any cut is a Rare discount. Where a compare-at price looked inflated (four of the deals — two TVs, a monitor and a LEGO set), the deal card says so instead of repeating the headline saving. Prices move fast on Black Friday weekend, so every card carries its check time and source, and the footer says to confirm the price on the store page before buying.
+A deal only makes the page if a store page or a reputable deals source actually showed that product, store, price and link when checked. The verdict is judged on the discount against the usual price — 50%+ is Strong, 30–49% Good, 20–29% Solid, 10–19% Modest — except a brand-new console like the Switch 2, which almost never discounts, where any cut is a Rare discount. Where a compare-at price looked inflated (six of the deals — two TVs, a monitor, a LEGO set, an SSD and a tablet), the deal card says so instead of repeating the headline saving. Prices move fast on Black Friday weekend, so every card carries its check time and source, and the footer says to confirm the price on the store page before buying.
 
 ## Hand it in
 
