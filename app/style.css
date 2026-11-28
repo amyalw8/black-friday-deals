@@ -111,3 +111,13 @@ a:hover { text-decoration-thickness: 2px; }
 .similar h2 { font-size: 19px; margin: 8px 0 12px; }
 .foot { border-top: 1px solid var(--line); padding: 20px 0 34px; color: var(--muted); font-size: 13.5px; }
 .foot p { margin: 8px 0; }
+
+/* Cross-store comparison */
+.alsoat { font-size: 13px; color: var(--muted); margin: 0; }
+.alsoat b { color: var(--ink); }
+.compare { background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 14px 0; }
+.compare h2 { font-size: 17px; margin: 0 0 8px; }
+.compare ul { margin: 8px 0 0; padding-left: 20px; font-size: 14.5px; }
+.compare li { margin: 4px 0; }
+.bestprice { display: inline-block; background: var(--green-bg); color: var(--green); border-radius: 999px; padding: 4px 10px; font-size: 13px; font-weight: 700; margin: 0; width: fit-content; }
+.bestprice.cheaper { background: var(--solid-bg); color: var(--amber); }
