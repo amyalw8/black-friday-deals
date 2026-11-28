@@ -1,8 +1,11 @@
-// DealHound data: 44 Black Friday / Cyber Monday deals, each checked on
-// 27 November 2026 against the store's own page or a reputable deals source.
+// DealHound data: 72 Black Friday / Cyber Monday deals, each checked on
+// 28 November 2026 against the store's own page or a reputable deals source.
 // Every price below is one a store page or deals source actually showed when
 // checked. "checked" is the check date; "source" says where it was seen.
-export const CHECKED_DATE = 'Nov 27, 2026';
+// "alsoAt" lists the same product at another store, so a shopper can see
+// whether this store is really the cheapest (url is included when the
+// other store's product page was found; otherwise store + price only).
+export const CHECKED_DATE = 'Nov 28, 2026';
 
 export const DEALS = [
   {
@@ -56,7 +59,7 @@ export const DEALS = [
     url: 'https://www.bestbuy.com/product/sony-wh-1000xm5-wireless-noise-cancelling-over-the-ear-headphones-black/J7XSRH5CXG/sku/6505727',
     sale: 169.99, usual: 398.00,
     checked: CHECKED_DATE, source: 'Best Buy product page',
-    note: 'All-time low price. Deal ends Nov 28.',
+    note: 'All-time low price. Doorbuster, ends Nov 28.',
   },
   {
     id: 'galaxy-s26fe',
@@ -88,6 +91,9 @@ export const DEALS = [
     sale: 499.99, usual: 549.99,
     checked: CHECKED_DATE, source: 'Best Buy product page',
     note: 'Switch 2 almost never goes on sale \u2014 $50 off a brand-new console is rare. Black Friday deal runs Nov 22\u2013Dec 5.',
+    alsoAt: [
+      { store: 'Walmart', price: 499, url: 'https://www.walmart.com/ip/Nintendo-Switch-2-Mario-Kart-World-Bundle/20865751029' },
+    ],
   },
   {
     id: 'mx-master-3s',
@@ -109,6 +115,9 @@ export const DEALS = [
     sale: 149, usual: 249,
     checked: CHECKED_DATE, source: 'TechSpot Black Friday roundup',
     note: 'All-time low. $100 under Apple\u2019s own price.',
+    alsoAt: [
+      { store: 'Target', price: 149.99 },
+    ],
   },
   {
     id: 'macbook-air-m5',
@@ -151,7 +160,7 @@ export const DEALS = [
     url: 'https://www.walmart.com/ip/20206324665',
     sale: 228, usual: 398,
     checked: CHECKED_DATE, source: 'Walmart product page',
-    note: 'Sold and shipped by Walmart. Deal ends Nov 28.',
+    note: 'Sold and shipped by Walmart. Deal ends Nov 29.',
   },
   {
     id: 'alienware-aw3426dw',
@@ -255,7 +264,7 @@ export const DEALS = [
     sale: 264.99, usual: 529.99,
     checked: CHECKED_DATE, source: 'Target product page',
   },
-  // --- New for v2: Amazon LEGO Black Friday sale (9to5Toys roundup, Nov 27) ---
+  // --- v2: Amazon LEGO Black Friday sale (9to5Toys roundup, Nov 27) ---
   {
     id: 'lego-hogwarts-great-hall',
     name: 'LEGO Harry Potter Hogwarts Castle: The Great Hall 76435',
@@ -330,7 +339,7 @@ export const DEALS = [
     sale: 28, usual: 43,
     checked: CHECKED_DATE, source: '9to5Toys Black Friday LEGO roundup',
   },
-  // --- New for v2: Newegg Black November ---
+  // --- v2: Newegg Black November ---
   {
     id: 'msi-vector-16hx',
     name: 'MSI Vector 16 HX AI 16" Gaming Laptop (Core Ultra 7 255HX, RTX 5070 Ti, 16GB / 512GB)',
@@ -364,17 +373,17 @@ export const DEALS = [
     checked: CHECKED_DATE, source: 'Newegg product page',
     note: 'Newegg also throws in a $120 promotional gift card with this one.',
   },
-  // --- New for v2: Costco Holiday Savings (Nov 27\u201330, membership required) ---
+  // --- v2: Costco Holiday Savings (Nov 27\u201330, membership required) ---
   {
     id: 'gopro-hero13',
     name: 'GoPro HERO13 Black Action Camera Bundle',
     brand: 'GoPro',
     category: 'Cameras',
     store: 'Costco',
-    url: 'https://www.costco.com/o/-/black-friday',
+    url: 'http://www.costco.com/.product.4000303268.html',
     sale: 339.99, usual: 419.99,
-    checked: CHECKED_DATE, source: 'Costco Black Friday page',
-    note: 'Costco membership required. Bundle includes a 128GB microSD card, a case and 2 Enduro batteries.',
+    checked: CHECKED_DATE, source: 'Costco product page; Costco Black Friday page',
+    note: 'Costco membership required. Bundle includes a 128GB microSD card, a case and 2 Enduro batteries. Valid Nov 27\u201330, item 6094012, limit 10.',
   },
   {
     id: 'insta360-x6',
@@ -382,10 +391,10 @@ export const DEALS = [
     brand: 'Insta360',
     category: 'Cameras',
     store: 'Costco',
-    url: 'https://www.costco.com/o/-/black-friday',
+    url: 'https://www.costco.com/p/-/insta360-x6-8k-360-action-camera-bundle/4201035480',
     sale: 629.99, usual: 699.99,
-    checked: CHECKED_DATE, source: 'Costco Black Friday page',
-    note: 'Costco membership required. Bundle includes 2 batteries, a selfie stick and a lens kit.',
+    checked: CHECKED_DATE, source: 'Costco product page; Costco Black Friday page',
+    note: 'Costco membership required. Bundle includes 2 batteries, a selfie stick and a lens kit. Valid Nov 19\u201330, item 9636006.',
   },
   {
     id: 'sonos-era100-2pk',
@@ -395,8 +404,8 @@ export const DEALS = [
     store: 'Costco',
     url: 'https://www.costco.com/o/-/black-friday',
     sale: 329.99, usual: 409.99,
-    checked: CHECKED_DATE, source: 'Costco Black Friday page',
-    note: 'Costco membership required. Two speakers, plus a coupon for 30% off Sonos accessories.',
+    checked: CHECKED_DATE, source: 'Costco Black Friday page; CostClubWeekly (Nov 23\u201329)',
+    note: 'Costco membership required. Two speakers, plus a coupon for 30% off Sonos accessories. Item 1731876; price after discount $329.99.',
   },
   {
     id: 'sonos-arc-ultra',
@@ -404,24 +413,27 @@ export const DEALS = [
     brand: 'Sonos',
     category: 'Audio',
     store: 'Costco',
-    url: 'https://www.costco.com/o/-/black-friday',
+    url: 'https://www.costco.com/p/-/sonos-arc-ultra-914-ch-soundbar-bundle/4000346129',
     sale: 849.99, usual: 1099.99,
-    checked: CHECKED_DATE, source: 'Costco Black Friday page',
-    note: 'Costco membership required. Includes a $60 gift card (Apple or SiriusXM) and a $79 wall mount voucher.',
+    checked: CHECKED_DATE, source: 'Costco product page; Costco Black Friday page',
+    note: 'Costco membership required. Includes a $60 gift card (Apple or SiriusXM) and a $79 wall mount voucher. Valid Nov 19\u201330, item 1912780.',
+    alsoAt: [
+      { store: 'Amazon', price: 849 },
+    ],
   },
-  // --- New for v2: Adorama ---
+  // --- v2: Adorama ---
   {
     id: 'synology-ds425',
     name: 'Synology DiskStation DS425+ 4-Bay NAS Enclosure (Diskless)',
     brand: 'Synology',
     category: 'Laptops & Computers',
     store: 'Adorama',
-    url: 'https://www.adorama.com/bf/l/Synology~Computers',
+    url: 'https://www.adorama.com/synology-diskstation-ds425-plus-4-bay-nas-enclosure-diskless/p/sydds425',
     sale: 479, usual: 599.99,
-    checked: CHECKED_DATE, source: 'Adorama Black Friday page',
-    note: 'Also $479 in Newegg\u2019s Black November ad.',
+    checked: CHECKED_DATE, source: 'Adorama Black Friday page; Adorama product page',
+    note: 'Adorama\u2019s Black Friday page lists it at $479 (the product page itself shows $579.99); Newegg\u2019s Black November ad also lists $479.',
   },
-  // --- New for v2: Target audio + e-reader ---
+  // --- v2: Target audio + e-reader ---
   {
     id: 'beats-solo4',
     name: 'Beats Solo 4 Bluetooth Wireless On-Ear Headphones (Warm White)',
@@ -455,7 +467,7 @@ export const DEALS = [
     checked: CHECKED_DATE, source: 'Target product page',
     note: 'Ad-supported model \u2014 sponsored screensavers show on the lock screen.',
   },
-  // --- New for v2: Walmart ---
+  // --- v2: Walmart ---
   {
     id: 'beats-studio-pro',
     name: 'Beats Studio Pro Wireless Noise Cancelling Over-Ear Headphones (White and Black)',
@@ -467,7 +479,7 @@ export const DEALS = [
     checked: CHECKED_DATE, source: 'Walmart product page; DealNews (verified Nov 26)',
     note: '$99 for White and Black (Matte White is sold out); other colors run $149.95\u2013$199.95. Ends Nov 29.',
   },
-  // --- New for v2: Home Depot appliances ---
+  // --- v2: Home Depot appliances ---
   {
     id: 'frigidaire-frss2623as',
     name: 'Frigidaire 36" 25.6 cu ft Standard-Depth Side-by-Side Refrigerator FRSS2623AS',
@@ -475,9 +487,359 @@ export const DEALS = [
     category: 'Appliances',
     store: 'Home Depot',
     url: 'https://www.homedepot.com/p/Frigidaire-36-in-26-cu-ft-Standard-Depth-Side-by-Side-Refrigerator-in-Stainless-Steel-FRSS2623AS/320970662',
-    sale: 1184, usual: 1599,
+    sale: 1259, usual: 1599,
     checked: CHECKED_DATE, source: 'Home Depot product page; RobinsPost',
     note: 'The page shows $1,259; $1,184 is the price in cart. Ends Dec 2.',
+  },
+  // --- v3: Phones ---
+  {
+    id: 'galaxy-s26-ultra',
+    name: 'Samsung Galaxy S26 Ultra 256GB Unlocked',
+    brand: 'Samsung',
+    category: 'Phones',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0G4SX79VJ',
+    sale: 949.99, usual: 1399.99,
+    checked: CHECKED_DATE, source: 'BasketPrice (verified Nov 27); TechSpot',
+    note: 'Deal runs to Nov 30. Samsung.com has it at $999.99 \u2014 Amazon beats Samsung by $50.',
+    alsoAt: [
+      { store: 'Samsung.com', price: 999.99 },
+    ],
+  },
+  {
+    id: 'pixel-11-pro',
+    name: 'Google Pixel 11 Pro 256GB Unlocked (Obsidian)',
+    brand: 'Google',
+    category: 'Phones',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0H832JH4Z',
+    sale: 749, usual: 1099,
+    checked: CHECKED_DATE, source: 'MacObserver (Nov 24); 9to5Google',
+    note: 'Stock has been patchy \u2014 it may sell out or flip to a third-party seller. Google Store matches $749 until Dec 5.',
+    alsoAt: [
+      { store: 'Google Store', price: 749 },
+    ],
+  },
+  // --- v3: TVs ---
+  {
+    id: 'fire-tv-4k',
+    name: 'Amazon Fire TV 4K (2026) with Alexa Voice Remote',
+    brand: 'Amazon',
+    category: 'TVs',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0G4XRP464',
+    sale: 19, usual: 60,
+    checked: CHECKED_DATE, source: 'Amazon product page; BasketPrice',
+    note: '68% off \u2014 the cheapest way into a 4K Fire TV.',
+  },
+  {
+    id: 'vizio-75q',
+    name: 'VIZIO 75" Quantum 4K QLED HDR Smart TV VQD75X-10 (Limited Edition)',
+    brand: 'VIZIO',
+    category: 'TVs',
+    store: 'Walmart',
+    url: 'https://www.walmart.com/ip/VIZIO-75-Class-Class-Quantum-4K-QLED-HDR-Limited-Edition-Smart-TV-NEW-2026-VQD75X-10/20164274962',
+    sale: 348, usual: 428,
+    checked: CHECKED_DATE, source: 'Walmart product page',
+    note: 'Honest check: Walmart\u2019s was-price of $739.88 looks inflated next to the $428 sibling model, so the real saving is closer to $80 than $392.',
+  },
+  // --- v3: Wearables ---
+  {
+    id: 'apple-watch-s12',
+    name: 'Apple Watch Series 12 42mm GPS (Light Gold, Sand S/M band)',
+    brand: 'Apple',
+    category: 'Wearables',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0HJ9ZXCSD',
+    sale: 299, usual: 399,
+    checked: CHECKED_DATE, source: 'Pickoryx (Nov 27); 9to5Toys',
+    note: 'Other colors are $329 \u2014 Light Gold is the cheapest.',
+  },
+  {
+    id: 'galaxy-watch-8',
+    name: 'Samsung Galaxy Watch 8 40mm (Graphite)',
+    brand: 'Samsung',
+    category: 'Wearables',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0F7QD4HSD',
+    sale: 199.99, usual: 299.99,
+    checked: CHECKED_DATE, source: 'DealNews (verified Nov 27); Slickdeals',
+    note: 'All-time low. Previous generation \u2014 the Watch 9 is out \u2014 but $100 off. Amazon-exclusive 2-year warranty included.',
+  },
+  {
+    id: 'pixel-watch-5',
+    name: 'Google Pixel Watch 5 41mm (Matte Black)',
+    brand: 'Google',
+    category: 'Wearables',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0H7X2NTZQ',
+    sale: 284.99, usual: 399.99,
+    checked: CHECKED_DATE, source: '9to5Google (Nov 27); SanePrice',
+    note: 'Best Buy and Target both have it at $299 \u2014 Amazon is $14 cheaper.',
+    alsoAt: [
+      { store: 'Best Buy', price: 299 },
+      { store: 'Target', price: 299 },
+    ],
+  },
+  // --- v3: Audio ---
+  {
+    id: 'powerbeats-pro-2',
+    name: 'Beats Powerbeats Pro 2 (Jet Black)',
+    brand: 'Beats',
+    category: 'Audio',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0DT2344N3',
+    sale: 179.95, usual: 249.99,
+    checked: CHECKED_DATE, source: 'Amazon product page; Slickdeals',
+    note: 'All four colors at the same cut.',
+  },
+  {
+    id: 'sonos-ace',
+    name: 'Sonos Ace Wireless Noise Cancelling Headphones (Black)',
+    brand: 'Sonos',
+    category: 'Audio',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0CYHGTMNH',
+    sale: 229, usual: 349,
+    checked: CHECKED_DATE, source: 'Amazon product page; 90-day price history',
+    note: '90-day average was $325 \u2014 $229 is a real drop, not a fake was-price.',
+  },
+  {
+    id: 'airpods-max-2',
+    name: 'Apple AirPods Max 2 (Midnight)',
+    brand: 'Apple',
+    category: 'Audio',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0GSS4SGZR',
+    sale: 419, usual: 549,
+    checked: CHECKED_DATE, source: 'Pickoryx (Nov 27)',
+    note: 'Walmart and Best Buy match $419, so the price is real everywhere.',
+    alsoAt: [
+      { store: 'Walmart', price: 419 },
+      { store: 'Best Buy', price: 419 },
+    ],
+  },
+  {
+    id: 'airpods-4',
+    name: 'Apple AirPods 4 (USB-C)',
+    brand: 'Apple',
+    category: 'Audio',
+    store: 'Walmart',
+    url: 'https://www.walmart.com/ip/Apple-AirPods-4/11381374703',
+    sale: 89, usual: 129.99,
+    checked: CHECKED_DATE, source: 'Walmart product page',
+    note: 'Standard model without active noise cancellation. Rollback, 10K+ bought since yesterday.',
+  },
+  // --- v3: Laptops & Computers ---
+  {
+    id: 'macbook-neo',
+    name: 'Apple MacBook Neo 13" (256GB, Indigo)',
+    brand: 'Apple',
+    category: 'Laptops & Computers',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0GR6FHGXX',
+    sale: 649.99, usual: 699,
+    checked: CHECKED_DATE, source: 'MacObserver (Nov 21); WCCFTech',
+    note: 'Briefly dropped to $599.99 on Nov 27 \u2014 $649.99 is the steady price now. Only 7% off, but it is Apple\u2019s cheapest laptop.',
+  },
+  {
+    id: 'dell-xps-13',
+    name: 'Dell XPS 13 (Intel Core 5 320, 8GB / 256GB)',
+    brand: 'Dell',
+    category: 'Laptops & Computers',
+    store: 'Dell',
+    url: 'https://www.dell.com/en-us/shop/laptop-computers/spd/xps13dx13260',
+    sale: 549.99, usual: 749.99,
+    checked: CHECKED_DATE, source: 'Dell product page (JSON-LD, InStock)',
+    note: 'Black Friday Deal \u2014 Dell calls it the lowest price of the year.',
+  },
+  {
+    id: 'mac-mini-m6',
+    name: 'Apple Mac mini M6 16GB / 256GB',
+    brand: 'Apple',
+    category: 'Laptops & Computers',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0HGGJZ92H',
+    sale: 779, usual: 899,
+    checked: CHECKED_DATE, source: 'MacObserver (Nov 25); ProductBible',
+    note: 'B&H matches $779, so the price is confirmed at two stores.',
+    alsoAt: [
+      { store: 'B&H', price: 779, url: 'https://www.bhphotovideo.com/c/product/1997676-REG/apple_mhqk4ll_a_mac_mini_m6.html/overview' },
+    ],
+  },
+  // --- v3: PC Parts ---
+  {
+    id: 'ryzen-9850x3d',
+    name: 'AMD Ryzen 7 9850X3D 8-Core Processor',
+    brand: 'AMD',
+    category: 'PC Parts',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0G8JMLXNQ',
+    sale: 399.99, usual: 499,
+    checked: CHECKED_DATE, source: 'Slickdeals (Nov 23); ThePCEnthusiast',
+    note: '$445.99 on the page minus a $46 on-page clip coupon \u2014 clip the coupon at checkout to see $399.99.',
+  },
+  {
+    id: 'samsung-9100-pro',
+    name: 'Samsung 9100 Pro 1TB NVMe SSD',
+    brand: 'Samsung',
+    category: 'PC Parts',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0DX2G349M',
+    sale: 209.99, usual: 339.99,
+    checked: CHECKED_DATE, source: 'DataCenterDisk (Nov 27); Amazon product page',
+    note: 'Honest check: the $339.99 list is inflated against the $199.99 launch MSRP, but $209.99 is still the 5-month low.',
+  },
+  // --- v3: Smart Home ---
+  {
+    id: 'eero-7-2pk',
+    name: 'Amazon eero 7 Dual-Band Mesh Wi-Fi 7 Router (2-pack)',
+    brand: 'Amazon',
+    category: 'Smart Home',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0D9555PBN',
+    sale: 229.99, usual: 300,
+    checked: CHECKED_DATE, source: 'WikiRouter (Nov 27)',
+    note: 'The 1-pack is $139.99 at the same discount.',
+  },
+  {
+    id: 'echo-dot-5',
+    name: 'Amazon Echo Dot (5th Gen, 2022) with Alexa',
+    brand: 'Amazon',
+    category: 'Smart Home',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B09B8V1LZ3',
+    sale: 39.99, usual: 79.99,
+    checked: CHECKED_DATE, source: 'Rakuten; TopProductPick',
+    note: '2022 model \u2014 the newer 2026 Dot is $74.99. Half price for the older one.',
+  },
+  {
+    id: 'airtag-2-4pk',
+    name: 'Apple AirTag 2 (4-pack)',
+    brand: 'Apple',
+    category: 'Smart Home',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0GJTXVN9Z',
+    sale: 79, usual: 99,
+    checked: CHECKED_DATE, source: 'The Verge; CNN (Nov 27)',
+    note: 'Walmart matches $79. The $69.99 price was an Oct 30\u2013Nov 11 doorbuster, now gone.',
+    alsoAt: [
+      { store: 'Walmart', price: 79 },
+    ],
+  },
+  {
+    id: 'echo-studio-2026',
+    name: 'Amazon Echo Studio (2026) with Home Camera',
+    brand: 'Amazon',
+    category: 'Smart Home',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0CVJSF8JR',
+    sale: 179.99, usual: 249.99,
+    checked: CHECKED_DATE, source: 'BasketPrice (verified Nov 27); MatterAlpha',
+    note: 'New 2026 model with a 13MP home camera. The standard Echo Studio without the camera is $159.99. Deal ends Dec 1.',
+  },
+  // --- v3: Cameras ---
+  {
+    id: 'dji-osmo-action-4',
+    name: 'DJI Osmo Action 4 Essential Combo',
+    brand: 'DJI',
+    category: 'Cameras',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0DS2B3P2B',
+    sale: 169, usual: 239,
+    checked: CHECKED_DATE, source: 'DroneXL (Nov 27)',
+    note: 'Sold by DJI Tech Hub, shipped by Amazon, in stock.',
+  },
+  // --- v3: Tablets ---
+  {
+    id: 'galaxy-tab-s10-fe',
+    name: 'Samsung Galaxy Tab S10 FE 128GB (Blue)',
+    brand: 'Samsung',
+    category: 'Tablets',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0DVZYQT3T',
+    sale: 349.99, usual: 549.99,
+    checked: CHECKED_DATE, source: 'MacObserver (Nov 24); TechDeals (Nov 27)',
+    note: 'Honest check: launch price was $499.99 and the list rose to $549.99 \u2014 but $349.99 is still $150 under launch and the 3-month low.',
+  },
+  {
+    id: 'ipad-mini-8',
+    name: 'Apple iPad Mini 8 128GB Wi-Fi (Midnight)',
+    brand: 'Apple',
+    category: 'Tablets',
+    store: 'B&H',
+    url: 'https://www.bhphotovideo.com/c/product/2010060-REG/apple_mj6f4ll_a_ipad_mini_wifi_128gb.html',
+    sale: 649, usual: 699,
+    checked: CHECKED_DATE, source: 'B&H product page',
+    note: 'Amazon lists $599 but the price varies by color \u2014 B&H\u2019s $649 is the steady in-stock price.',
+  },
+  {
+    id: 'galaxy-tab-s11',
+    name: 'Samsung Galaxy Tab S11 128GB',
+    brand: 'Samsung',
+    category: 'Tablets',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0FGKTLFGD',
+    sale: 699.99, usual: 999.99,
+    checked: CHECKED_DATE, source: 'Dealectric (checked Nov 27); MacObserver (Nov 21)',
+    note: 'Samsung.com matches $699.99.',
+    alsoAt: [
+      { store: 'Samsung.com', price: 699.99 },
+    ],
+  },
+  {
+    id: 'ipad-11',
+    name: 'Apple iPad 11" (A16, 128GB Wi-Fi, Blue)',
+    brand: 'Apple',
+    category: 'Tablets',
+    store: 'Amazon',
+    url: 'https://www.amazon.com/dp/B0DZ75TN5F',
+    sale: 379, usual: 449,
+    checked: CHECKED_DATE, source: 'MacObserver (Nov 25); Slickdeals (Nov 23)',
+    note: 'Blue, Pink and Silver are $379; Yellow is $399. Target has Blue at $379.99.',
+    alsoAt: [
+      { store: 'Target', price: 379.99 },
+    ],
+  },
+  // --- v3: Kitchen ---
+  {
+    id: 'ninja-slushi-fs360',
+    name: 'Ninja SLUSHi 96-Oz Smart Frozen Drink Maker FS360',
+    brand: 'Ninja',
+    category: 'Kitchen',
+    store: 'Walmart',
+    url: 'https://www.walmart.com/ip/Ninja-SLUSHi-96-Oz-Smart-Frozen-Drink-Maker-SlushAssist-Technology-FS360/19646951492',
+    sale: 169, usual: 319,
+    checked: CHECKED_DATE, source: 'Walmart product page',
+    note: 'Black Friday Deal. The 72-oz FS300 is $199 (was $249).',
+  },
+  // --- v3: Vacuums ---
+  {
+    id: 'shark-la490',
+    name: 'Shark Detect Lift-Away ADV Upright Vacuum LA490 (Mauve)',
+    brand: 'Shark',
+    category: 'Vacuums',
+    store: 'Walmart',
+    url: 'https://www.walmart.com/ip/Shark-Detect-Lift-Away-ADV-Upright-Vacuum-Pet-Friendly-Floor-Detect-Direction-Detect-PowerFins-Self-Cleaning-Brushroll-LA490-Mauve/14422865087',
+    sale: 144, usual: 379.99,
+    checked: CHECKED_DATE, source: 'Walmart product page',
+    note: 'Black Friday Deal, 10K+ bought since yesterday. Mauve only \u2014 Burgundy is $329.99.',
+  },
+  // --- v3: Gaming ---
+  {
+    id: 'dualsense',
+    name: 'Sony DualSense Wireless Controller (Gray Camouflage)',
+    brand: 'Sony',
+    category: 'Gaming',
+    store: 'Best Buy',
+    url: 'https://www.bestbuy.com/product/sony-interactive-entertainment-dualsense-wireless-controller-for-ps5-pc-mac-mobile-gray-camouflage/JXHQ37T9KF/sku/6522931',
+    sale: 54.99, usual: 74.99,
+    checked: CHECKED_DATE, source: 'Best Buy product page; Dexerto',
+    note: 'Deal ends Nov 28. Amazon and Walmart both have it at $54.',
+    alsoAt: [
+      { store: 'Amazon', price: 54 },
+      { store: 'Walmart', price: 54 },
+    ],
   },
 ];
 
@@ -503,4 +865,15 @@ export function verdict(d) {
   if (pct >= 30) return { label: 'Good deal', tone: 'good', why: `${pct}% off the usual price \u2014 a solid Black Friday cut.` };
   if (pct >= 20) return { label: 'Solid deal', tone: 'solid', why: `${pct}% off the usual price \u2014 worth it if you already wanted it.` };
   return { label: 'Modest deal', tone: 'modest', why: `${pct}% off the usual price \u2014 a small cut, only if you were buying anyway.` };
+}
+
+// Cross-store comparison: is this store's price the best, tied, or beaten?
+// Returns { status: 'best' | 'tied' | 'higher', best: { store, price } },
+// where best is the cheapest alsoAt entry (not this deal's own price).
+export function bestPrice(d) {
+  if (!d.alsoAt || !d.alsoAt.length) return null;
+  const best = d.alsoAt.reduce((a, b) => (b.price < a.price ? b : a));
+  if (d.sale < best.price) return { status: 'best', best };
+  if (d.sale === best.price) return { status: 'tied', best };
+  return { status: 'higher', best };
 }
